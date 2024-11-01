@@ -9,11 +9,8 @@
 {% block body %}
 
 <div class="container security-form security-page flex-wrap">
-
     <div class="form-spacing display-flex text-align-center justify-content-center">
-
         <div class="form-area">
-        
             <div class="logo">
                 <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
             </div>
@@ -40,17 +37,14 @@
                     {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': "Password of inscription..."}, 'label': 'Password'}) }}
                 </div>
 
-                <div class="checkbox-term mb-3">
+                <div class="mb-3">
                     {{ form_row(registrationForm.agreeTerms) }}
                 </div>
 
                 <button type="submit" class="btn btn-primary">Register</button>
             {{ form_end(registrationForm) }}
-
         </div>
-
     </div>
-
 </div>
 
 {% endblock %}

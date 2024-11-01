@@ -1,23 +1,56 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register{% endblock %}
+{% block title %}Chokalatte | Register{% endblock %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
+{% endblock %}
 
 {% block body %}
-    <h1>Register</h1>
 
-    {{ form_errors(registrationForm) }}
+<div class="container security-form security-page flex-wrap">
 
-    {{ form_start(registrationForm) }}
-        {{ form_row(registrationForm.email) }}
+    <div class="form-spacing display-flex text-align-center justify-content-center">
 
-        {{ form_row(registrationForm.firstName) }}
-        {{ form_row(registrationForm.lastName) }}
+        <div class="form-area">
         
-        {{ form_row(registrationForm.plainPassword, {
-            label: 'Password'
-        }) }}
-        {{ form_row(registrationForm.agreeTerms) }}
+            <div class="logo">
+                <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
+            </div>
 
-        <button type="submit" class="btn">Register</button>
-    {{ form_end(registrationForm) }}
+            <h1 class="h3 mb-3 font-weight-normal">Register Now</h1>
+                <p>Glad to see you join Us !</p>
+
+            {{ form_errors(registrationForm) }}
+
+            {{ form_start(registrationForm) }}
+                <div class="form-field">
+                    {{ form_row(registrationForm.email, {'attr': {'class': 'form-control','placeholder': "Email of inscription..."}}) }}
+                </div>
+
+                <div class="form-field">
+                    {{ form_row(registrationForm.firstName, {'attr': {'class': 'form-control','placeholder': "First Name of inscription..."}}) }}
+                </div>
+
+                <div class="form-field"> 
+                    {{ form_row(registrationForm.lastName, {'attr': {'class': 'form-control','placeholder': "Last Name of inscription..."}}) }}
+                </div>
+
+                <div class="form-field">
+                    {{ form_row(registrationForm.plainPassword, {'attr': {'class': 'form-control', 'placeholder': "Password of inscription..."}, 'label': 'Password'}) }}
+                </div>
+
+                <div class="checkbox-term mb-3">
+                    {{ form_row(registrationForm.agreeTerms) }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Register</button>
+            {{ form_end(registrationForm) }}
+
+        </div>
+
+    </div>
+
+</div>
+
 {% endblock %}

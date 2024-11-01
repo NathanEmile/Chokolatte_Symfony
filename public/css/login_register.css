@@ -1,11 +1,3 @@
-/*body .security-page {
-    background-image: url('../images/paczes-login.jpg'); 
-    background-size: cover; 
-    background-position: center center; 
-    background-repeat: no-repeat; 
-    height: 100vh; 
-}*/
-
 .security-form{
     display: flex;
     align-items: center;

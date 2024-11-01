@@ -25,6 +25,10 @@ body {
 
 
 
+::selection{
+	color: #625772;
+	background: #f38181;
+}
 
 @font-face {
     font-family: Cousine;

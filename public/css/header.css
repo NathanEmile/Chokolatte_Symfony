@@ -1,0 +1,35 @@
+#header {
+    width: 100%;
+    height: auto;
+}
+
+/*-----top-header-----*/
+.top-header {
+    background: #000;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: slideIn 1s forwards;
+}
+@keyframes slideIn {
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+.top-header-text {
+    width: 100vw;
+    background-color: #625772;
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700!important;
+    text-transform: uppercase;
+}
+/*-----------------*/
+
+/*-----header-----*/
+.header{
+    background: #fff;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}

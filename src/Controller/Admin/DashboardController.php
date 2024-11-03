@@ -15,7 +15,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class DashboardController extends AbstractDashboardController
 {
-    #[Route('/admin', name: 'admin')]
+    #[Route('/admin', name: 'app_admin')]
     public function index(): Response
     {
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
@@ -33,8 +33,8 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::subMenu('Menu', 'fa fa-article')->setSubItems([
                 MenuItem::linkToCrud('Categories', 'fa fa-book', Category::class),
-                // MenuItem::linkToCrud('Posts', 'fa fa-file-text', BlogPost::class),
-                // MenuItem::linkToCrud('Comments', 'fa fa-comment', Comment::class),
+                //MenuItem::linkToCrud('Specialities', 'fa fa-file-text', null::class),
+                //MenuItem::linkToCrud('Products', 'fa fa-comment', null::class),
             ]),
             MenuItem::linkToCrud('User', 'fas fa-user', User::class),
         ];

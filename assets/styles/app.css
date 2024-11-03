@@ -1,13 +1,31 @@
 * {
     margin: 0;
-    /*padding: 0;*/ 
+    padding: 0; 
     font-family: Cousine;
     box-sizing: border-box;
 }
-
 body {
     /*background-color: skyblue;*/
     background-color: #F8F8F84A;
+}
+img {
+    vertical-align: middle;
+}
+ol, ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: inherit;
+}
+::selection{
+	color: #625772;
+	background: #f38181;
+}
+
+@font-face {
+    font-family: Cousine;
+      src: url(../../public/fonts/Cousine-Regular.ttf);
 }
 
 .display-flex {
@@ -22,18 +40,50 @@ body {
 .flex-wrap{
     flex-wrap: wrap!important;
 }
-
-
-
-::selection{
-	color: #625772;
-	background: #f38181;
+.container{
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 1890px;
 }
 
-@font-face {
-    font-family: Cousine;
-      src: url(../../public/fonts/Cousine-Regular.ttf);
+.abstract-button {
+    text-decoration: none;
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
 }
+.secondary-button {
+    border: 1px solid #000;
+    border-radius: 1rem;
+    padding: .4rem 0.8rem;
+    transition-property: background-color, color, transform;
+    transition-duration: .2s;
+    transition-timing-function: ease-in-out;
+    text-align: center;
+}
+.secondary-navigation li:nth-child(1) .secondary-button:hover {
+    background-color: #f7f7f7;
+    transition: .3s ease-out;
+}
+/* Cibler le deuxième élément <li> pour appliquer le style */
+.secondary-navigation li:nth-child(2) .secondary-button {
+    background-color: #000; /* Fond noir */
+    border: none; /* Pas de bordure */
+    color: #fff; /* Couleur du texte, ajustez si nécessaire */
+}
+.secondary-navigation li:nth-child(2) .secondary-button:hover {
+    background-color: #3e3e3e; /* Fond noir plus fonceé */
+    transition: .3s ease-out;
+}
+
+
+
+
 
 
 

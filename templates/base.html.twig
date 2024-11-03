@@ -2,7 +2,8 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <title>{% block title %}Welcome!{% endblock %}</title>
+        <title>{% block title %}Home | Chokolatte{% endblock %}</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
         <link rel="icon" type="image/png" href="../images/favicon.png"/>
         {% block stylesheets %}
@@ -18,13 +19,62 @@
         <!-- Header section --> 
         <section id="header" class="">
             <div class="top-header">
-                <p class="top-header-text"> ⸜(｡˃ ᵕ ˂ )⸝♡ Welcome on our website !</p>
+              <p class="top-header-text">
+                {% if app.user %}
+                  ⸜(｡˃ ᵕ ˂ )⸝♡ Glad to see you, {{ app.user.firstName }} !!!
+                {% else %}
+                  ⸜(｡˃ ᵕ ˂ )⸝♡ Welcome on our website !
+                {% endif %}
+              </p>
             </div>
             <header class="header">
-                <div class="header-logo">
-                    <img src="{{ asset('images/logo.png') }}" alt="Logo" class="logo-img">
-                </div>
-                
+                <nav>
+                    <div class="header-logo">
+                        <a href="{{ path('app_home') }}">
+                            <img src="{{ asset('images/logo_transparent.webp') }}" alt="Logo" class="logo-img">
+                        </a>    
+                    </div>
+                    <div class="header-wrapper">
+                        <div class="header-items">
+                            <ul class="primary-navigation">
+                                <li class="primary-navigation-list">
+                                    <a href="#" class="primary-navigation-link"><span>Menu</span></a>
+                                </li>
+                                <li class="primary-navigation-list">
+                                    <a href="#" class="primary-navigation-link"><span>Ingredients</span></a>
+                                </li>
+                                <li class="primary-navigation-list">
+                                    <a href="#" class="primary-navigation-link"><span>Our Services</span></a>
+                                </li>
+                                 <li class="primary-navigation-list">
+                                    <a href="#" class="primary-navigation-link"><span>About Us</span></a>
+                                </li>
+                                 <li class="primary-navigation-list">
+                                    <a href="#" class="primary-navigation-link"><span>Contact</span></a>
+                                </li>
+                            </ul>
+                            <ul class="secondary-navigation">
+                                <li class="login-button">
+                                    <a class="abstract-button secondary-button" href="{{ path('app_login') }}"><span>Login</span></a>
+                                </li>
+                                {% if app.user %}
+                                    <li> 
+                                        <a class="abstract-button secondary-button" href="{{ path('app_register') }}"><span>Sign up</span></a>
+                                    </li>
+                                {% else %}
+                                    <li>
+                                        <a class="abstract-button secondary-button" href="{{ path('app_logout') }}"><span>Logout</span></a>
+                                    </li>
+                                {% endif %}
+                                {% if is_granted('ROLE_ADMIN') %}
+                                    <li class="admin-button">
+                                        <a class="abstract-button secondary-button" href="{{ path('app_admin') }}"><span>Administration</span></a>
+                                    </li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
             </header>
         </section>
 

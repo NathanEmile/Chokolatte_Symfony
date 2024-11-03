@@ -1,6 +1,6 @@
 #header {
-    width: 100%;
-    height: auto;
+    /*width: 100%;
+    height: auto;*/
 }
 
 /*-----top-header-----*/
@@ -17,19 +17,107 @@
     }
 }
 .top-header-text {
-    width: 100vw;
+    width: 100%;
     background-color: #625772;
     color: #fff;
     padding: 5px 0;
     text-align: center;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700!important;
     text-transform: uppercase;
 }
-/*-----------------*/
 
 /*-----header-----*/
-.header{
+.header {
     background: #fff;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.header nav {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    padding: 0 7rem 0 2.2rem;
+}
+.header-logo img {
+    max-width: 100%!important;
+    max-height: 75px!important; 
+}
+.header-wrapper {
+    padding-left: 4rem;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+.header-items {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/*-----primary-navigation-----*/
+.primary-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100%;
+}
+.primary-navigation-list {
+    margin-right: 2.4rem;
+}
+.primary-navigation-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*text-transform: uppercase;*/
+    letter-spacing: 1px;
+    position: relative;
+    font-weight: 700;
+}
+.primary-navigation-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px; /* Positionne la ligne en dessous */
+    width: 100%; /* Largeur de l'élément */
+    height: 2px; /* Épaisseur de la ligne */
+    background-color: #625772; /* Couleur de la ligne */
+    transform: scaleX(0); /* Échelle de la ligne à 0 pour la cacher */
+    transition: transform 0.3s ease; 
+}
+.primary-navigation-link:hover::after {
+    transform: scaleX(1); /* Étend la ligne à 100% au survol */
+}
+.primary-navigation-link span {
+    display: inline-block;
+    transform: translateY(0); /* Position initiale normale */
+    opacity: 1; /* Texte visible par défaut */
+    transition: transform 0.3s ease, opacity 0.3s ease; /* Transitions pour le texte */
+}
+.primary-navigation-link:hover span {
+    transform: translateY(-10px); /* Remonte le texte au survol */
+    color: #625772;
+}
+
+/*-----secondary-navigation-----*/
+.secondary-navigation {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*-----login-button-----*/
+.login-button {
+    margin-left: 2.4rem;
+    margin-right: .6rem;
+}
+
+/*-----admin-button-----*/
+.admin-button {
+    margin-left: 1.4rem;
+    margin-right: .6rem;
 }

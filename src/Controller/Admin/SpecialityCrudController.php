@@ -38,12 +38,8 @@ class SpecialityCrudController extends AbstractCrudController
         }
     
         return [
-            //ChoiceField::new('category')
-                //->setChoices($choices)
-                //->setLabel('Catégorie'),
             AssociationField::new('category')
                 ->setLabel('Category'),
-
             TextField::new('name'),
             TextEditorField::new('description')
         ];

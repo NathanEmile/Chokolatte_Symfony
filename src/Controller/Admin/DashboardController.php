@@ -4,6 +4,7 @@ namespace App\Controller\Admin;
 
 use App\Entity\Category;
 use App\Entity\Speciality;
+use App\Entity\Product;
 use App\Entity\User;
 
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
@@ -31,10 +32,10 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         return [
-            MenuItem::subMenu('Menu', 'fa fa-article')->setSubItems([
-                MenuItem::linkToCrud('Categories', 'fa fa-book', Category::class),
-                MenuItem::linkToCrud('Specialities', 'fa fa-file-text', Speciality::class),
-                //MenuItem::linkToCrud('Products', 'fa fa-comment', null::class),
+            MenuItem::subMenu('Menu', 'fa fa-book')->setSubItems([
+                MenuItem::linkToCrud('Categories', 'fa fa-bookmark', Category::class),
+                MenuItem::linkToCrud('Specialities', 'fa fa-star', Speciality::class),
+                MenuItem::linkToCrud('Products', 'fa fa-cookie-bite', Product::class),
             ]),
             MenuItem::linkToCrud('User', 'fas fa-user', User::class),
         ];

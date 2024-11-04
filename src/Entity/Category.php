@@ -3,6 +3,9 @@
 namespace App\Entity;
 
 use App\Repository\CategoryRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: CategoryRepository::class)]
@@ -24,6 +27,18 @@ class Category
 
     #[ORM\Column]
     private ?int $position = null;
+
+    /**
+     * @var Collection<int, Speciality>
+     */
+    #[ORM\OneToMany(targetEntity: Speciality::class, mappedBy: 'category', orphanRemoval: true)]
+    private Collection $specialities;
+
+
+    public function __construct()
+    {
+        $this->specialities = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -77,4 +92,40 @@ class Category
 
         return $this;
     }
+
+    /**
+     * @return Collection<int, Speciality>
+     */
+    public function getSpecialities(): Collection
+    {
+        return $this->specialities;
+    }
+
+    public function addSpeciality(Speciality $speciality): static
+    {
+        if (!$this->specialities->contains($speciality)) {
+            $this->specialities->add($speciality);
+            $speciality->setCategory($this);
+        }
+
+        return $this;
+    }
+
+    public function removeSpeciality(Speciality $speciality): static
+    {
+        if ($this->specialities->removeElement($speciality)) {
+            // set the owning side to null (unless already changed)
+            if ($speciality->getCategory() === $this) {
+                $speciality->setCategory(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->getName();
+    }
+    
 }

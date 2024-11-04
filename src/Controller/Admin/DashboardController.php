@@ -3,10 +3,10 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Category;
+use App\Entity\Speciality;
 use App\Entity\User;
 
 use EasyCorp\Bundle\EasyAdminBundle\Router\AdminUrlGenerator;
-
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -33,7 +33,7 @@ class DashboardController extends AbstractDashboardController
         return [
             MenuItem::subMenu('Menu', 'fa fa-article')->setSubItems([
                 MenuItem::linkToCrud('Categories', 'fa fa-book', Category::class),
-                //MenuItem::linkToCrud('Specialities', 'fa fa-file-text', null::class),
+                MenuItem::linkToCrud('Specialities', 'fa fa-file-text', Speciality::class),
                 //MenuItem::linkToCrud('Products', 'fa fa-comment', null::class),
             ]),
             MenuItem::linkToCrud('User', 'fas fa-user', User::class),

@@ -8,6 +8,7 @@
         <link rel="icon" type="image/png" href="../images/favicon.png"/>
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/header.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -54,16 +55,22 @@
                                 </li>
                             </ul>
                             <ul class="secondary-navigation">
-                                <li class="login-button">
-                                    <a class="abstract-button secondary-button" href="{{ path('app_login') }}"><span>Login</span></a>
-                                </li>
+                                {% if app.user %}                          
+                                    <li class="login-button">
+                                        <a class="abstract-button secondary-button" href="#"><span>{{ app.user.firstName }}</span></a>
+                                    </li>
+                                {% else %}
+                                    <li class="login-button">
+                                        <a class="abstract-button secondary-button" href="{{ path('app_login') }}"><span>Login</span></a>
+                                    </li>
+                                {% endif %}
                                 {% if app.user %}
                                     <li> 
-                                        <a class="abstract-button secondary-button" href="{{ path('app_register') }}"><span>Sign up</span></a>
+                                        <a class="abstract-button secondary-button" href="{{ path('app_logout') }}"><span>Logout</span></a>
                                     </li>
                                 {% else %}
                                     <li>
-                                        <a class="abstract-button secondary-button" href="{{ path('app_logout') }}"><span>Logout</span></a>
+                                        <a class="abstract-button secondary-button" href="{{ path('app_register') }}"><span>Register</span></a>
                                     </li>
                                 {% endif %}
                                 {% if is_granted('ROLE_ADMIN') %}
@@ -82,7 +89,9 @@
 
         <!-- Newsletter section -->
         <section id ="newsletter" class="">
+            <div class="newsletter">
 
+            </div>
         </section>
 
         <!-- Footer section -->

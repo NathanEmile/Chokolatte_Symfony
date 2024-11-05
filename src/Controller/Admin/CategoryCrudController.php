@@ -30,7 +30,7 @@ class CategoryCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             SlugField::new('slug')
                 ->setTargetFieldName('slug'),
-            IntegerField::new('position')
+            IntegerField::new('position'),
             //BooleanField::new('isActive'),
         ];
     }

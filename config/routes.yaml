@@ -3,3 +3,6 @@ controllers:
         path: ../src/Controller/
         namespace: App\Controller
     type: attribute
+images:
+    path: /images/products/{filename}
+    controller: App\Controller\ImageController::getImage

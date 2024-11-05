@@ -31,13 +31,9 @@ class SpecialityCrudController extends AbstractCrudController
     {
         // Récupération des catégories
         $categories = $this->entityManager->getRepository(Category::class)->findAll();
-        $choices = [];
-        foreach ($categories as $category) {
-            // Utilisez le nom de la catégorie comme clé et l'objet Category comme valeur
-            $choices[$category->getId()] = $category->getName();
-        }
-    
+            
         return [
+            //IdField::new('id'),
             AssociationField::new('category')
                 ->setLabel('Category'),
             TextField::new('name'),

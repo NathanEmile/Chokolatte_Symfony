@@ -4,10 +4,23 @@ namespace App\Entity;
 
 use App\Repository\ProductRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\DBAL\Types\Types;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Symfony\Component\HttpFoundation\File\File;
 
+#[Vich\Uploadable]
 #[ORM\Entity(repositoryClass: ProductRepository::class)]
+#[ORM\UniqueConstraint(name: 'UNIQ_IDENTIFIER_SLUG', fields: ['slug'])]
 class Product
 {
+    /**
+     * @var \DateTimeImmutable|null
+     *
+     * @ORM\Column(type="datetime_immutable", nullable=true)
+     */
+
+    private $updatedAt;
+
     #[ORM\Id]
     #[ORM\GeneratedValue]
     #[ORM\Column]
@@ -15,8 +28,8 @@ class Product
 
     #[ORM\Column(length: 100)]
     private ?string $name = null;
-
-    #[ORM\Column(length: 255)]
+    
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
     #[ORM\Column]
@@ -36,9 +49,25 @@ class Product
     #[ORM\Column]
     private ?int $position = null;
 
-    #[ORM\Column(length: 255, nullable: true)]
+    //#[ORM\Column(length: 255, nullable: true)]
+    //private ?string $image = null;
+
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
     private ?string $image = null;
 
+    #[Vich\UploadableField(mapping: 'products', fileNameProperty: 'image')]
+    private ?File $imageFile = null;
+
+    public function getUpdatedAt(): ?\DateTimeImmutable
+    {
+        return $this->updatedAt;
+    }
+
+    public function setUpdatedAt(?\DateTimeImmutable $updatedAt): void
+    {
+        $this->updatedAt = $updatedAt;
+    }
+    
     public function getId(): ?int
     {
         return $this->id;
@@ -138,6 +167,20 @@ class Product
         $this->image = $image;
 
         return $this;
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            $this->updatedAt = new \DateTimeImmutable();
+        }
     }
     
 }

@@ -1,0 +1,24 @@
+#hero {
+    /*width: 100%;
+    height: auto;*/
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(21, 20, 30, 0.5);
+}
+
+/*-----hero-----*/
+.hero {
+    height: 50vh;
+    background-image: url(../images/background/freepik-export-202411061804357W0p.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    position: relative;
+}
+

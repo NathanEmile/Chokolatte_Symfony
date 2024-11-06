@@ -9,6 +9,11 @@
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/header.css') }}">
             <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
+
+            <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -17,8 +22,8 @@
     </head>
     <body>
 
-        <!-- Header section --> 
-        <section id="header" class="">
+    <!-- Header section --> 
+        <section id="header">
             <div class="top-header">
               <p class="top-header-text">
                 {% if app.user %}
@@ -87,17 +92,56 @@
 
         {% block body %}{% endblock %}
 
-        <!-- Newsletter section -->
-        <section id ="newsletter" class="">
+    <!-- Newsletter section -->
+        <section id ="newsletter">
             <div class="newsletter">
+                <div class="container">
+                    <div class="row">
+                        <div class="newsletter-column">
+                            <h2>Subscribe to our newsletter</h2>
+                            <p>Stay connected with us for our latest news and promotions. 🤭</p>
+                            <form>
+                                <div class="newsletter-form-controls">
+                                    <div class="newsletter-form-input">
+                                        <input class="newsletter-input-field" type="email" placeholder="your email address" required>
+                                    </div>
+                                    <div>
+                                        <button class="abstract-button secondary-button newsletter-button" type="submit">Subscribe</button>
+                                    </div>
+                                    <div>
+                                        <div class="newsletter-checkbox">
+                                            <label>
+                                                Find required informations on our <a href="#" class="a-link">Politique de confidentialité.</a> You can unsubscribe at any time.
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </form>    
+                        </div>
 
+                        <div class="newsletter-column">                    
+                            <h2>Our others stores</h2>
+                            <p>We have more than ? stores in the world. 🌍</p>
+                            <div class="stores-list">
+                                <ul>
+                                    <li class="stores-list-item"><a href="#"><img src="../images/paris.png" alt="Paris store">Paris 🥖, France</a></li>
+                                    <li class="stores-list-item"><a href="#"><img src="../images/london.png" alt="Paris store">London 💂‍♀️, United Kingdom</a></li>
+                                    <li class="stores-list-item"><a href="#"><img src="../images/new-york.png" alt="Paris store">New York 🗽, USA</a></li>
+                                </ul>    
+                            </div>
+                        </div>                
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Footer section -->
-        <footer>
-            <p>&copy; {{ "now"|date("Y") }} Mon Site Web. Tous droits réservés.</p>
-        </footer>
+    <!-- Footer section -->
+        <section id="footer">
+            <div class="divider"></div>
+                <footer>
+                    <p>&copy; {{ "now"|date("Y") }} Mon Site Web. Tous droits réservés.</p>
+                </footer>
+        </section>
 
     </body>
 </html>

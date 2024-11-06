@@ -1,0 +1,14 @@
+#footer {
+    /*width: 100%;
+    height: auto;*/
+}
+
+/*-----divider-----*/
+.divider {
+    background: #E2E2E2;
+    height: 1px;
+}
+
+footer p {
+    text-align: center;
+}

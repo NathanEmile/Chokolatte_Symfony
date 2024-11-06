@@ -40,15 +40,6 @@ a {
 .flex-wrap{
     flex-wrap: wrap!important;
 }
-.container{
-    width: 100%;
-    padding-left: 15px;
-    padding-right: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    max-width: 1890px;
-}
-
 .abstract-button {
     text-decoration: none;
     position: relative;
@@ -59,7 +50,7 @@ a {
 }
 .secondary-button {
     border: 1px solid #000;
-    border-radius: 1rem;
+    border-radius: 3px;
     padding: .4rem 0.8rem;
     transition-property: background-color, color, transform;
     transition-duration: .2s;
@@ -83,6 +74,11 @@ a {
 
 
 
+.a-link:hover{
+    color: #FFF;
+    background: #000;
+    transition: all .7s ease-out;
+  }
 
 
 

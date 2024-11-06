@@ -2,8 +2,88 @@
     /*width: 100%;
     height: auto;*/
 }
+.container {
+    max-width: 1250px;
+    margin: auto;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
 
 /*-----newsletter-----*/    
 .newsletter {
     background: hsla(0, 0%, 89%, .25);
+}
+
+/*-----newsletter-column-----*/
+.newsletter-column {
+    width: 100%;
+    flex-basis: 50%;
+}
+.newsletter-column h2 {
+    font-size: 16px;
+    padding: 30px 0 15px;
+    text-transform: uppercase;
+    text-align: left;
+    font-weight: 200;
+}
+.newsletter-column p {
+    font-size: 12px;
+    padding: 0 0 15px;
+    text-align: left;
+    color: #A8A8A8;
+}
+
+/*-----newsletter-form-----*/
+.newsletter-form {
+    padding-bottom: 35px;
+}
+.newsletter-form-controls {
+    display: flex;
+    flex-direction: column;
+}
+.newsletter-form-input {
+    width: 100%;
+    margin-bottom: 10px;
+}
+.newsletter-input-field {
+    border: none;
+    padding: 10px 0;
+    background: transparent;
+    border-bottom: 1px solid #E2E2E2;
+    color: #000;
+    font-size: 12px;
+    position: relative;
+    width: 100%;
+}
+.newsletter-button {
+    background-color: #000; /* Fond noir */
+    border: none; /* Pas de bordure */
+    color: #fff; /* Couleur du texte, ajustez si nécessaire */
+}
+.newsletter-button:hover {
+    background-color: #3e3e3e; /* Fond noir plus fonceé */
+    transition: .3s ease-out;
+}
+.newsletter-checkbox {
+    margin: 15px 0 30px;
+}
+.newsletter-checkbox label {
+    font-size: 11px;
+}
+
+/*-----stores-list-----*/
+.stores-list {
+
+}
+.stores-list-item a:hover {
+    text-decoration: underline;
+}
+.stores-list-item a img {
+    max-width: 100px;
+    max-height: 40px;
+    object-fit: cover;
+    padding: 5px 10px;
 }

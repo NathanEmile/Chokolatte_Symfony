@@ -12,7 +12,6 @@
             <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
 
             <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
-
             <link rel="stylesheet" href="{{ asset('css/home.css') }}">
         {% endblock %}
 
@@ -44,7 +43,7 @@
                         <div class="header-items">
                             <ul class="primary-navigation">
                                 <li class="primary-navigation-list">
-                                    <a href="#" class="primary-navigation-link"><span>Menu</span></a>
+                                    <a href="{{ path('app_menu') }}" class="primary-navigation-link"><span>Menu</span></a>
                                 </li>
                                 <li class="primary-navigation-list">
                                     <a href="#" class="primary-navigation-link"><span>Ingredients</span></a>

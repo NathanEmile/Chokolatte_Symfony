@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chokalatte | Menu{% endblock %}
+
+{% block body %}
+    <section id="menu">
+        <div class="menu">
+            <h1>Menus</h1>
+    <ul>
+        {% for category in categories %}
+        <ul>
+            <li>{{ category.name }}</li>
+            <li>{{ category.description }}</li>
+        </ul>    
+        {% endfor %}
+    </ul>
+        </div>
+    </section>
+{% endblock %}

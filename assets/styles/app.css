@@ -10,6 +10,9 @@ body {
 }
 img {
     vertical-align: middle;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
 }
 ol, ul {
     list-style: none;
@@ -28,6 +31,12 @@ a {
       src: url(../../public/fonts/Cousine-Regular.ttf);
 }
 
+
+.img{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 .display-flex {
     display: flex!important;
 }
@@ -40,6 +49,8 @@ a {
 .flex-wrap{
     flex-wrap: wrap!important;
 }
+
+
 .abstract-button {
     text-decoration: none;
     position: relative;
@@ -48,6 +59,8 @@ a {
     justify-content: center;
     overflow: hidden;
 }
+
+
 .secondary-button {
     border: 1px solid #000;
     border-radius: 3px;
@@ -73,12 +86,11 @@ a {
 }
 
 
-
 .a-link:hover{
     color: #FFF;
     background: #000;
     transition: all .7s ease-out;
-  }
+}
 
 
 

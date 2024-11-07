@@ -1,0 +1,41 @@
+#about-introduction {
+    /*width: 100%;
+    height: auto;*/
+}
+
+/*-----about-introduction-----*/
+.about-introduction {
+    display: flex;
+}
+/*-----about-half-----*/
+.about-half {
+    width: 50%;
+    /*padding: 30px 15px;*/
+    padding: 8% 13% 8% 5%;
+}
+
+/*-----overlap-----*/
+.overlap {
+    padding: 40px;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+.overlap span {
+    font-size: 3.5rem;
+    font-family: Smithra;
+    color: #f38181;
+    line-height: 1;
+}
+.overlap h2 {
+    z-index: -1;
+    font-size: 40px;
+    font-weight: 700;
+    position: relative;
+    margin-bottom: 1.5rem !important;
+}
+
+
+
+@font-face {
+    font-family: Smithra;    
+    src: url(../fonts/Romario-Smithra.otf);
+}

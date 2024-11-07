@@ -13,6 +13,8 @@
 
             <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
             <link rel="stylesheet" href="{{ asset('css/home.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/about.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -52,7 +54,7 @@
                                     <a href="#" class="primary-navigation-link"><span>Our Services</span></a>
                                 </li>
                                  <li class="primary-navigation-list">
-                                    <a href="#" class="primary-navigation-link"><span>About Us</span></a>
+                                    <a href="{{ path('app_about') }}" class="primary-navigation-link"><span>About Us</span></a>
                                 </li>
                                  <li class="primary-navigation-list">
                                     <a href="#" class="primary-navigation-link"><span>Contact</span></a>
@@ -110,7 +112,7 @@
                                     <div>
                                         <div class="newsletter-checkbox">
                                             <label>
-                                                Find required informations on our <a href="#" class="a-link">Politique de confidentialité.</a> You can unsubscribe at any time.
+                                                Find required informations on our <a href="#" class="a-link">Politique de confidentialité</a>. You can unsubscribe at any time.
                                             </label>
                                         </div>
                                     </div>

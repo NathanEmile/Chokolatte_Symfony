@@ -10,17 +10,109 @@
             </div>
         </div>    
     </div>
+
     <section id="menu">
-        <div class="menu">
-            <h1>Menus</h1>
-    <ul>
-        {% for category in categories %}
-        <ul>
-            <li>{{ category.name }}</li>
-            <li>{{ category.description }}</li>
-        </ul>    
-        {% endfor %}
-    </ul>
+        <div class="container">
+            <div class="menu">
+                {% for category in categories %}
+                    <div class="menu-item">
+                        {#<img src="{{ category.image }}" alt="{{ category.name }}">"#}
+                        <h2>{{ category.name }}</h2>
+                        <p>{{ category.description }}</p>
+                    </div>
+                {% endfor %}
+            </div>
         </div>
     </section>
+    
+    <div class="carousel-container">
+        <div class="carousel">
+            {% for category in categories %}
+                <div class="carousel-item">
+                    <a href="#">
+                        <div class="card">
+                            <h2>{{ category.name }}</h2>
+                            <p>{{ category.description }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+
+<style>
+    .carousel-container {
+        width: 100%;
+        padding: 20px;
+        box-sizing: border-box;
+    }
+
+    .carousel {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
+        gap: 20px; /* Espace entre les cartes */
+    }
+
+    .carousel-item {
+        background-color: #f4f4f4;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .carousel-item a {
+        display: block;
+        text-decoration: none;
+    }
+
+    .card {
+        padding: 20px;
+        text-align: center;
+        background-color: #1c3868;
+        color: white;
+        border-radius: 8px;
+    }
+
+    .card h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .card p {
+        font-size: 14px;
+    }
+
+    .carousel-item a:hover .card {
+        background-color: #555;
+    }
+
+    /* Responsiveness: 1 carte par ligne sur petits écrans */
+    @media (max-width: 768px) {
+        .carousel {
+            grid-template-columns: 1fr; /* 1 carte par ligne */
+        }
+    }
+
+    /* Responsiveness: 2 cartes par ligne sur écrans moyens */
+    @media (min-width: 769px) and (max-width: 1024px) {
+        .carousel {
+            grid-template-columns: repeat(2, 1fr); /* 2 cartes par ligne */
+        }
+    }
+</style>
 {% endblock %}
+
+
+    {# <section id="menu">
+        <div class="menu">
+            <h1>Menus</h1>
+            <ul>
+                {% for category in categories %}
+                    <ul>
+                        <li>{{ category.name }}</li>
+                        <li>{{ category.description }}</li>
+                    </ul>    
+                {% endfor %}
+            </ul>
+        </div>
+    </section> #}

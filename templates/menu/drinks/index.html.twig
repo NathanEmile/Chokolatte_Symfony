@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chokalatte | {{ category.name }}{% endblock %}
+
+{% block body %}
+<h1>Drinks Menu</h1>
+{#{% for speciality in specialities %}
+    <div>
+        <h2>{{ speciality.name }}</h2>
+        <p>{{ speciality.description }}</p>
+        <ul>
+            {% for product in speciality.products %}
+                <li>{{ product.name }} - {{ (product.price / 100)|number_format(2, '.', ',') }} €</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endfor %}#}
+
+<section id="menu">
+    <div class="container">
+        <div class="menu">
+            {% for speciality in specialities %}
+                <h2 class="speciality-name">{{ speciality.name }}</h2>
+                {% for product in speciality.products %}
+                    <div class="menu-item">
+                        <div class="menu-item-img">
+                            <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+                        </div>
+                        <div class="menu-item-text">
+                            <h2>{{ product.name }}</h2>
+                            <p>{{ product.description }}</p>
+                            <p>{{ product.price / 100|number_format(2, '.', ',') }} €</p>
+                        </div>
+                        <div class="menu-item-button">
+                            {#<a href="menu/{{ category.slug}}" class="abstract-button secondary-button">Order Now</a>#}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

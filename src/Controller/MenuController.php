@@ -18,8 +18,8 @@ class MenuController extends AbstractController
     #[Route('/menu', name: 'app_menu')]
     public function index(): Response
     {
-        $categories = $this->entityManager->getRepository(Category::class)->findBy([], ['position' => 'DESC']);
-
+        //$categories = $this->entityManager->getRepository(Category::class)->findBy([], ['position' => 'DESC']);
+        $categories = $this->entityManager->getRepository(Category::class)->findAll();
         return $this->render('menu/index.html.twig', [
             'controller_name' => 'MenuController',
             'categories' => $categories,

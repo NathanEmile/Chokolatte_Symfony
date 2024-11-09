@@ -5,6 +5,7 @@
 
 /*-----top-header-----*/
 .top-header {
+    width: 100%;
     background: #000;
     transform: translateY(20px);
     opacity: 0;
@@ -17,7 +18,6 @@
     }
 }
 .top-header-text {
-    width: 100%;
     background-color: #625772;
     color: #fff;
     padding: 5px 0;

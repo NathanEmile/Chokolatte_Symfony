@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\SlugField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
+use Vich\UploaderBundle\Form\Type\VichImageType;
 
 class CategoryCrudController extends AbstractCrudController
 {
@@ -30,6 +31,10 @@ class CategoryCrudController extends AbstractCrudController
             TextEditorField::new('description'),
             SlugField::new('slug')
                 ->setTargetFieldName('slug'),
+            TextField::new('imageFile')
+                ->setFormType(VichImageType::class)->onlyOnForms(),
+            ImageField::new('image')
+                ->setBasePath('images/categories')->onlyOnIndex(),    
             IntegerField::new('position'),
             //BooleanField::new('isActive'),
         ];

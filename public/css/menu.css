@@ -13,12 +13,46 @@
 /*-----menu-----*/
 .menu {
     display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 cartes par ligne */
-    gap: 20px; /* Espace entre les cartes */
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 1rem 0;
 }
 .menu-item {
-    background-color: #f4f4f4;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: #FFF;
+    border-radius: 1px;
+    box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
     overflow: hidden;
+    width: 100%;
+}
+
+.menu-item-img {
+    width: 100%;
+    margin-bottom: 1rem;
+}
+
+.menu-item-img img {
+    width: 100%;
+    height: calc(100% / 1.33); /* 4:3 ratio */
+}
+
+.menu-item-text {
+    padding: 0 .4rem .4rem;
+}
+.menu-item-text h3 {
+    line-height: 2.2rem;
+}
+.menu-item-text p {
+    font-size: 14px;
+    margin-bottom: 1rem;
+    color: #7c7c7c;
+}
+
+
+
+.speciality-name {
+    grid-column: 1 / 4;
+    padding: 1rem 0;
+    background: #f38181;
+    color: #fff;
+    text-align: center;
 }

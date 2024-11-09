@@ -77,7 +77,6 @@ a {
 /* Cibler le deuxième élément <li> pour appliquer le style */
 .secondary-navigation li:nth-child(2) .secondary-button {
     background-color: #000; /* Fond noir */
-    border: none; /* Pas de bordure */
     color: #fff; /* Couleur du texte, ajustez si nécessaire */
 }
 .secondary-navigation li:nth-child(2) .secondary-button:hover {

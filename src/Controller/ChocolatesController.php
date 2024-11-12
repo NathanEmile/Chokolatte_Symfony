@@ -10,24 +10,24 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 use Doctrine\ORM\EntityManagerInterface;
 
-class DrinksController extends AbstractController
+class ChocolatesController extends AbstractController
 {
     public function __construct(private readonly EntityManagerInterface $entityManager)
     {
         // Constructor injection to inject the EntityManagerInterface       
     }
 
-    #[Route('menu/drinks', name: 'app_drinks')]
+    #[Route('menu/chocolates', name: 'app_chocolates')]
     public function index(): Response
     {
         $category = $this->entityManager->getRepository(Category::class)
-            ->findOneBy(['name' => 'Drinks']);
+            ->findOneBy(['name' => 'Chocolates']);
 
         $specialities = $this->entityManager->getRepository(Speciality::class)
             ->createQueryBuilder('s')
             ->innerJoin('s.category', 'c')
             ->where('c.name = :category')
-            ->setParameter('category', 'Drinks')
+            ->setParameter('category', 'Chocolates')
             ->getQuery()
             ->getResult();
 
@@ -35,12 +35,12 @@ class DrinksController extends AbstractController
             ->createQueryBuilder('p')
             ->innerJoin('p.category', 'c')
             ->where('c.name = :category')
-            ->setParameter('category', 'Drinks')
+            ->setParameter('category', 'Chocolates')
             ->getQuery()
             ->getResult();
 
-        return $this->render('menu/drinks/index.html.twig', [
-            'controller_name' => 'DrinksController',
+        return $this->render('menu/chocolates/index.html.twig', [
+            'controller_name' => 'ChocolatesController',
             'products' => $products,
             'specialities' => $specialities,
             'category' => $category

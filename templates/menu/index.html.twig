@@ -3,14 +3,14 @@
 {% block title %}Chokalatte | Menu{% endblock %}
 
 {% block body %}
-    <div class="hourly">
+    <div class="title">
         <div class="container">
             <div class="row">
                 <h1>Hourly Schedule</h1>
             </div>
         </div>    
     </div>
-
+    <!-- Menu section --> 
     <section id="menu">
         <div class="container">
             <div class="menu">
@@ -22,27 +22,11 @@
                         <div class="menu-item-text">
                             <h3>{{ category.name }}</h3>
                             <p>{{ category.description }}</p>
+                            <a href="menu/{{ category.slug}}" class="abstract-button menu-button">{{ category.name }}</a>
                         </div>
-                            <a href="menu/{{ category.slug}}" class="abstract-button secondary-button">{{ category.name }}</a>
                     </div>
                 {% endfor %}
             </div>
         </div>
     </section>
-    
 {% endblock %}
-
-
-    {# <section id="menu">
-        <div class="menu">
-            <h1>Menus</h1>
-            <ul>
-                {% for category in categories %}
-                    <ul>
-                        <li>{{ category.name }}</li>
-                        <li>{{ category.description }}</li>
-                    </ul>    
-                {% endfor %}
-            </ul>
-        </div>
-    </section> #}

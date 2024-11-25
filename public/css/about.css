@@ -1,10 +1,10 @@
-#about-introduction {
+#about {
     /*width: 100%;
     height: auto;*/
 }
 
 /*-----about-introduction-----*/
-.about-introduction {
+.about {
     display: flex;
 }
 /*-----about-half-----*/

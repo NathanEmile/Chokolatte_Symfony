@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chokalatte | {{ product.name }}{% endblock %}
+
+{% block body %}
+    <div class="example-wrapper">
+        <h1>Détails du produit</h1>
+
+        <p>Nom: {{ product.name }}</p>
+        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+        <p>Description: {{ product.description }}</p>
+        <p>Prix: {{ product.price / 100|number_format(2, '.', ',') }} €</p>
+        <a href="{{ path('cart_add', {'id': product.id}) }}">Add to cart</a>
+    </div>
+
+    <h2>Other Drinks from {{ product.speciality.name }}</h2>
+
+    <div class="menu">
+        {% for otherProduct in product.speciality.products %}
+            {% if otherProduct.id != product.id %}
+                <div class="menu-item">
+                    <div class="menu-item-img">
+                        <!-- Ajoutez une image pour chaque produit si nécessaire -->
+                        <img src="{{ vich_uploader_asset(otherProduct, 'imageFile') }}" alt="{{ otherProduct.name }}">
+                    </div>
+                    <div class="menu-item-text">
+                        <h3>{{ otherProduct.name }}</h3>
+                    </div>
+                    <a href="{{ relative_path('/menu/drinks/' ~ otherProduct.slug) }}" class="abstract-button secondary-button">Order Now</a>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+{% endblock %}
+
+
+
+{# <ul>
+    {% for otherProduct in product.speciality.products %}
+        {% if otherProduct.id != product.id %}
+            <li>
+                <a href="{{ relative_path('/menu/drinks/' ~ otherProduct.slug) }}">{{ otherProduct.name }}</a>
+            </li>
+        {% endif %}
+    {% endfor %}
+</ul> #}

@@ -5,16 +5,18 @@
         <title>{% block title %}Home | Chokolatte{% endblock %}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
-        <link rel="icon" type="image/png" href="../images/favicon.png"/>
+        <link rel="icon" type="image/png" href="{{ asset('images/favicon.png') }}"/>
+
         {% block stylesheets %}
             <link rel="stylesheet" href="{{ asset('css/header.css') }}">
             <link rel="stylesheet" href="{{ asset('css/newsletter.css') }}">
             <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
-
+        
             <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
             <link rel="stylesheet" href="{{ asset('css/home.css') }}">
             <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
             <link rel="stylesheet" href="{{ asset('css/about.css') }}">
+            <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
         {% endblock %}
 
         {% block javascripts %}
@@ -125,9 +127,9 @@
                             <p>We have more than ? stores in the world. 🌍</p>
                             <div class="stores-list">
                                 <ul>
-                                    <li class="stores-list-item"><a href="#"><img src="../images/paris.png" alt="Paris store">Paris 🥖, France</a></li>
-                                    <li class="stores-list-item"><a href="#"><img src="../images/london.png" alt="Paris store">London 💂‍♀️, United Kingdom</a></li>
-                                    <li class="stores-list-item"><a href="#"><img src="../images/new-york.png" alt="Paris store">New York 🗽, USA</a></li>
+                                    <li class="stores-list-item"><a href="#"><img src="{{ asset('images/paris.png') }}" alt="Paris store">Paris 🥖, France</a></li>
+                                    <li class="stores-list-item"><a href="#"><img src="{{ asset('images/london.png') }}" alt="Paris store">London 💂‍♀️, United Kingdom</a></li>
+                                    <li class="stores-list-item"><a href="https://en.wikipedia.org/wiki/New_York_City"><img src="{{ asset('images/new-york.png') }}" alt="Paris store">New York City 🗽, USA</a></li>
                                 </ul>    
                             </div>
                         </div>                

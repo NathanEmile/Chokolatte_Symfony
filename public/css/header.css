@@ -30,7 +30,8 @@
 /*-----header-----*/
 .header {
     position: relative;
-    background: #fff;
+    /*background: #fff;*/
+    background: hsla(0, 0%, 100%, .25);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     z-index: 1000;
 }
@@ -123,4 +124,21 @@
 .admin-button {
     margin-left: 1.4rem;
     margin-right: .6rem;
+}
+
+/* Styles pour les écrans de taille normale */
+.primary-navigation-list {
+    display: flex;
+    align-items: center;
+    margin-right: 2.4rem;
+}
+
+.primary-navigation-link {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 1px;
+    position: relative;
+    font-weight: 700;
 }

@@ -2,16 +2,6 @@
     /*width: 100%;
     height: auto;*/
 }
-.container {
-    max-width: 1250px;
-    margin: auto;
-}
-.row {
-    display: flex;
-    flex-wrap: wrap;
-    flex-direction: row;
-}
-
 
 /*-----newsletter-----*/    
 .newsletter {

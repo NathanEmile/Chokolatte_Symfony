@@ -7,4 +7,11 @@ import './bootstrap.js';
  */
 import './styles/app.css';
 
+/*Page Cart*/
+document.querySelector('.quantity-selector-input').addEventListener('keydown', function(event) {
+  if (event.key.match(/[a-z]/i)) {
+    event.preventDefault();
+  }
+});
+
 console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉');

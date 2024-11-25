@@ -1,0 +1,120 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Chokalatte | Cart{% endblock %}
+
+{% block body %}
+    <h1>Mon Panier</h1>
+    <ul>
+        {% for item in cart %}
+            <li>
+                {{ item.product.name }} (x{{ item.quantity }})
+            </li>
+        {% endfor %}
+    </ul>
+<!-- Cart section -->
+    <section id="cart">
+        <div class="cart-container">
+            <div class="cart">  
+                <div class="">
+                    <table class="cart-table">
+                        <thead class="hidden-mobile">
+                            <tr> 
+                                <th><span class="heading">Product</span></th>
+                                <th><span class="heading text-align-center">Quantity</th>
+                                <th><span class="heading text-align-right">Total</th>
+                            </tr>
+                        </thead> 
+                        <tbody>
+                            {% for item in cart %}
+                            <tr class="cart-item">
+                                <td class="cart-item-product">
+                                    <div class="cart-item-product-wrapper">
+                                        <a href="{{ path('app_product_details', {'slug': item.product.slug}) }}" class="cart-item-image-wrapper">
+                                            <img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}" class="cart-item-image">
+                                        </a>
+                                        <div class="cart-item-info">
+                                            <a href="{{ path('app_product_details', {'slug': item.product.slug}) }}" class="cart-item-name">{{ item.product.name }}</a>
+                                            <p class="cart-item-price">{{ item.product.price / 100|number_format(2, '.', ',') }} €</p>
+                                        </div>
+                                    </div>
+                                </td>    
+                                <td class="cart-item-quantity">
+                                    <line-item-quantity style="display: block; margin-top: -4px;">
+                                        <div class="quantity-selector">
+                                            <a href="{{ path('cart_remove', {'id': item.product.id}) }}" class="quantity-selector-button">
+                                                <i class="fa fa-minus"></i>
+                                            </a>
+                                            <input is="input-number" autocomplete="off" type="text" inputmode="numeric" class="quantity-selector-input" value="{{ item.quantity }}" min="1" size="2">   
+                                            <a href="{{ path('cart_add', {'id': item.product.id}) }}" class="quantity-selector-button">
+                                                <i class="fa fa-plus"></i>
+                                            </a>      
+                                       </div>
+                                       <a href="{{ path('cart_delete', {'id': item.product.id}) }}" class="cart-remove-button">Remove</a>
+                                    </line-item-quantity>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
+
+{#
+<table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Produit</th>
+                                    <th>Prix</th>
+                                    <th>Quantité</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                    <tr>
+                                        <td>{{ item.product.name }}</td>
+                                        <td>{{ (item.product.price / 100)|number_format(2, '.', ',') }} €</td>
+                                        <td>{{ item.quantity }}</td>
+                                        <td>{{ (item.product.price * item.quantity / 100)|number_format(2, '.', ',') }} €</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+
+#}
+
+{#<div class="cart-item">
+                        <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Delete</th>
+                                    <th>Image</th>
+                                    <th>Product</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in cart %}
+                                    <tr>
+                                        <td>
+                                            <a href="{{ path('cart_remove', {'id': item.product.id}) }}"><i class="fa fa-times"></i></a>
+                                        </td>
+                                        <td>
+                                            <img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}">
+                                        </td>
+                                        <td>{{ item.product.name }}</td>
+                                        <td>{{ item.product.price / 100|number_format(2, '.', ',') }} €</td>
+                                        <td>
+                                            <input type="number" value="{{ item.quantity }}" min="1">
+                                        </td>
+                                        <td>{{ (item.product.price * item.quantity / 100)|number_format(2, '.', ',') }} €</td>
+                                    </tr>
+                                {% endfor %}
+                            </tbody>    
+                        </table>
+                    </div>#}

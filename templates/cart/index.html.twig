@@ -29,11 +29,10 @@
                             <tr class="cart-item">
                                 <td class="cart-item-product">
                                     <div class="cart-item-product-wrapper">
-                                        <a href="{{ path('app_product_details', {'slug': item.product.slug}) }}" class="cart-item-image-wrapper">
-                                            <img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}" class="cart-item-image">
+                                        <a href="{{ path('app_product_details', {'category': item.product.category, 'slug': item.product.slug}) }}" class="cart-item-image-wrapper">                                            <img src="{{ vich_uploader_asset(item.product, 'imageFile') }}" alt="{{ item.product.name }}" class="cart-item-image">
                                         </a>
                                         <div class="cart-item-info">
-                                            <a href="{{ path('app_product_details', {'slug': item.product.slug}) }}" class="cart-item-name">{{ item.product.name }}</a>
+                                            <a href="{{ path('app_product_details', {'category': item.product.category, 'slug': item.product.slug}) }}" class="cart-item-name">{{ item.product.name }}</a>
                                             <p class="cart-item-price">{{ item.product.price / 100|number_format(2, '.', ',') }} €</p>
                                         </div>
                                     </div>

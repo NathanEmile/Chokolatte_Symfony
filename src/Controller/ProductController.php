@@ -15,13 +15,13 @@ class ProductController extends AbstractController
         // Constructor injection to inject the EntityManagerInterface       
     }
 
-    #[Route('/menu/drinks/{slug}', name: 'app_product_details')]
-    public function details($slug): Response
+    #[Route('/menu/{category}/{slug}', name: 'app_product_details')]
+    public function details(string $category, string $slug): Response
     {
         $product = $this->entityManager->getRepository(Product::class)->findOneBy(['slug' => $slug]);
         if (!$product) {
             throw $this->createNotFoundException('Produit non trouvé');
         }
-        return $this->render('menu/drinks/details.html.twig', ['product' => $product]);
+        return $this->render('menu/' . $category . '/details.html.twig', ['product' => $product]);
     }
 }

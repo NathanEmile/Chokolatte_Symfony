@@ -10,17 +10,7 @@
             </div>
         </div>    
     </div>
-    {#{% for speciality in specialities %}
-        <div>
-            <h2>{{ speciality.name }}</h2>
-            <p>{{ speciality.description }}</p>
-            <ul>
-                {% for product in speciality.products %}
-                    <li>{{ product.name }} - {{ (product.price / 100)|number_format(2, '.', ',') }} €</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endfor %}#}
+
     <!-- Menu section --> 
     <section id="menu">
         <div class="container">
@@ -37,8 +27,13 @@
                                 <p>{{ product.description|slice(0, 100) }}...</p>
                                 <p class="price">{{ product.price / 100|number_format(2, '.', ',') }} €</p>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_USER') %}
+<<<<<<< HEAD
                                     <a href="{{ path('app_product_details', {'slug': product.slug}) }}" class="abstract-button menu-button">Order Now</a>
                                 {% endif %}
+=======
+                                    <a href="{{ path('app_product_details', {'category': 'chocolates', 'slug': product.slug}) }}" class="abstract-button menu-button">Order Now</a> 
+                                {% endif %}                           
+>>>>>>> 352073e52253fa70e37e932e2344ef4b3f0d2a5e
                             </div>
                         </div>
                     {% endfor %}

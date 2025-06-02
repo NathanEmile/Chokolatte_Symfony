@@ -48,10 +48,5 @@ class ProductCrudController extends AbstractCrudController
                 ->setCurrency('EUR'),
             IntegerField::new('position'),
         ];
-    }
-    
+    }  
 }
-
-/*ImageField::new('image')
-                ->setLabel('Image')
-                ->setUploadDir('public/images/products'),*/

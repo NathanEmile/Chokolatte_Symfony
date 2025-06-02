@@ -9,7 +9,7 @@
     height: auto;*/
 }
 
-/*-----menu-----*/
+/*-----menu-----*//*-----menu-----*//*-----menu-----*//*-----menu-----*//*-----menu-----*/
 .menu {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -28,7 +28,6 @@
     width: 100%;
     margin-bottom: 1rem;
 }
-
 .menu-item-img img {
     width: 100%;
     height: calc(100% / 1.33); /* 4:3 ratio */
@@ -42,7 +41,7 @@
     font-size: 16px;
 }
 .menu-item-text p {
-    /*font-size: 14px;*/
+    font-size: 12px;
     margin-bottom: 1rem;
     color: #7c7c7c;
 }
@@ -74,7 +73,6 @@
     animation: rainbow 10s infinite;
     font-weight: 800;
 }
-
 @keyframes rainbow {
     0% {
         color: #ff0000;

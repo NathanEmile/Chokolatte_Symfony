@@ -17,7 +17,8 @@
 /*-----overlap-----*/
 .overlap {
     padding: 40px;
-    background-color: rgba(0, 0, 0, 0.1);
+    background-color: rgba(0, 0, 0, 0.02);
+    border: 1px solid #000;
 }
 .overlap span {
     font-size: 3.5rem;

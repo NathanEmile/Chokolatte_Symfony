@@ -1,5 +1,5 @@
 .title {
-    padding: .6em 0;
+    padding: .4em 0;
     clear: both;
     background: #f38181;
 }
@@ -41,8 +41,8 @@
     font-size: 16px;
 }
 .menu-item-text p {
-    font-size: 12px;
     margin-bottom: 1rem;
+    font-size: 0.9rem;
     color: #7c7c7c;
 }
 .menu-button {
@@ -72,6 +72,10 @@
     font-size: 1.2rem;
     animation: rainbow 10s infinite;
     font-weight: 800;
+    padding-left: 1%;
+}
+p.price {
+    font-size: 1.5rem;
 }
 @keyframes rainbow {
     0% {

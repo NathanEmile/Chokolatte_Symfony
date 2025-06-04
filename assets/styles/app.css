@@ -1,7 +1,7 @@
 * {
     margin: 0;
     padding: 0; 
-    font-family: Cousine;
+    font-family: Funky;
     box-sizing: border-box;
 }
 body {
@@ -32,8 +32,8 @@ table {
 }
 
 @font-face {
-    font-family: Cousine;
-      src: url(../../public/fonts/Cousine-Regular.ttf);
+    font-family: Funky; 
+      src: url(../../public/fonts/FunkyBird.otf);
 }
 
 .container {
@@ -44,6 +44,7 @@ table {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
+    justify-content: space-between;
 }
 .img{
     background-size: cover;

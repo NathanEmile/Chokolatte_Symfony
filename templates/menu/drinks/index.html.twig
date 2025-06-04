@@ -16,15 +16,21 @@
         <div class="container">
             <div class="menu">
                 {% for speciality in specialities %}
-                    <h2 class="speciality-name">{{ speciality.name }} ‧₊˚ ⋅  ☕️🍵 ‧₊˚ ⋅</h2>
+                    <h2 class="speciality-name">{{ speciality.name }}</h2>
                     {% for product in speciality.products %}
                         <div class="menu-item">
                             <div class="menu-item-img">
-                                <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+                                {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_USER') %}
+                                <a href="{{ path('app_product_details', {'category': 'drinks', 'slug': product.slug}) }}">
+                                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+                                </a>
+                                {% else %}
+                                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+                                {% endif %}
                             </div>
                             <div class="menu-item-text">
                                 <h3>{{ product.name }}</h3>
-                                <p>{{ product.description|slice(0, 100) }}...</p>
+                                <p class="menu-item-description">{{ product.description|slice(0, 120) }}...</p>
                                 <p class="price">{{ product.price / 100|number_format(2, '.', ',') }} €</p>
                                 {% if is_granted('IS_AUTHENTICATED_FULLY') and is_granted('ROLE_USER') %}
                                     <a href="{{ path('app_product_details', {'category': 'drinks', 'slug': product.slug}) }}" class="abstract-button menu-button">Order Now</a> 

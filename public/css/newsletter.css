@@ -11,7 +11,7 @@
 /*-----newsletter-column-----*/
 .newsletter-column {
     width: 100%;
-    flex-basis: 50%;
+    flex-basis: 45%;
 }
 .newsletter-column h2 {
     font-size: 16px;

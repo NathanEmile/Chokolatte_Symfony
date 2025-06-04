@@ -15,6 +15,7 @@
             <link rel="stylesheet" href="{{ asset('css/login_register.css') }}">
             <link rel="stylesheet" href="{{ asset('css/home.css') }}">
             <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
+                <link rel="stylesheet" href="{{ asset('css/details.css') }}">
             <link rel="stylesheet" href="{{ asset('css/about.css') }}">
             <link rel="stylesheet" href="{{ asset('css/cart.css') }}">
         {% endblock %}
@@ -45,6 +46,7 @@
                     </div>
                     <div class="header-wrapper">
                         <div class="header-items">
+                        
                             <ul class="primary-navigation">
                                 <li class="primary-navigation-list">
                                     <a href="{{ path('app_menu') }}" class="primary-navigation-link"><span>Menu</span></a>
@@ -62,16 +64,24 @@
                                     <a href="#" class="primary-navigation-link"><span>Contact</span></a>
                                 </li>
                             </ul>
+
                             <ul class="secondary-navigation">
-                                {% if app.user %}                          
-                                    <li class="login-button">
-                                        <a class="abstract-button secondary-button" href="#"><span>{{ app.user.firstName }}</span></a>
-                                    </li>
+                                {% if app.user %}
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li class="admin-button">
+                                            <a class="abstract-button secondary-button" href="{{ path('app_admin') }}"><span>Administration</span></a>
+                                        </li>
+                                    {% else %}
+                                        <li class="login-button">
+                                            <a class="abstract-button secondary-button" href="#"><span>{{ app.user.firstName }}</span></a>
+                                        </li>
+                                    {% endif %}
                                 {% else %}
                                     <li class="login-button">
                                         <a class="abstract-button secondary-button" href="{{ path('app_login') }}"><span>Login</span></a>
                                     </li>
                                 {% endif %}
+
                                 {% if app.user %}
                                     <li> 
                                         <a class="abstract-button secondary-button" href="{{ path('app_logout') }}"><span>Logout</span></a>
@@ -79,11 +89,6 @@
                                 {% else %}
                                     <li>
                                         <a class="abstract-button secondary-button" href="{{ path('app_register') }}"><span>Join us !</span></a>
-                                    </li>
-                                {% endif %}
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    <li class="admin-button">
-                                        <a class="abstract-button secondary-button" href="{{ path('app_admin') }}"><span>Administration</span></a>
                                     </li>
                                 {% endif %}
                             </ul>
@@ -114,7 +119,9 @@
                                     <div>
                                         <div class="newsletter-checkbox">
                                             <label>
-                                                Find required informations on our <a href="#" class="a-link">Politique de confidentialité</a>. You can unsubscribe at any time.
+                                                Find required informations on our <a href="#" class="a-link">Politique de confidentialité.</a>
+                                                <br>
+                                                You can unsubscribe at any time !!!
                                             </label>
                                         </div>
                                     </div>
@@ -142,7 +149,7 @@
         <section id="footer">
             <div class="divider"></div>
                 <footer>
-                    <p>&copy; {{ "now"|date("Y") }} Nathan Emile. Tous droits réservés.</p>
+                    <p>𝄃𝄃𝄂𝄂𝄀𝄁𝄃𝄂𝄂𝄃 2024/{{ "now"|date("Y") }} Nathan Emile &copy;. Tous droits réservés.</p>
                 </footer>
         </section>
 

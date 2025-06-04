@@ -3,15 +3,50 @@
 {% block title %}Chokalatte | {{ product.name }}{% endblock %}
 
 {% block body %}
-    <div class="example-wrapper">
-        <h1>Détails du produit</h1>
-
-        <p>Nom: {{ product.name }}</p>
-        <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
-        <p>Description: {{ product.description }}</p>
-        <p>Prix: {{ product.price / 100|number_format(2, '.', ',') }} €</p>
-        <a href="{{ path('cart_add', {'id': product.id}) }}">Add to cart</a>
+    <div class="title">
+        <div class="container">
+            <div class="row">
+                <h1>{{product.name}}</h1>
+            </div>
+        </div>    
     </div>
+    <div class="product-details">
+        <div class="container">
+            <div class="product-container">
+                <div class="product-image">
+                    <img src="{{ vich_uploader_asset(product, 'imageFile') }}" alt="{{ product.name }}">
+                </div>
+                <div class="product-info">
+                    <div class="product-info-container">
+                        <div class="prduct-info-flex">
+                            <div class="product-info-header">
+                                <!--<h1>{{ product.name }}</h1>-->
+                                <p>{{ product.description }}</p>
+                            </div>
+                            <div class="product-info-speciality">
+                                <h2>{{ product.speciality.name }}</h2>
+                                <p>{{ product.speciality.description }}</p>
+                            </div>
+
+                            <div class="product-info-price">
+                                <p>{{ product.price / 100|number_format(2, '.', ',') }} €</p>
+                            </div>
+                        </div>    
+                            <div class="product-info-add-to-cart">
+                                <a class="abstract-button menu-button" href="{{ path('cart_add', {'id': product.id}) }}">Add to cart</a>
+                            </div>
+                    </div>    
+                </div>
+            </div>
+        </div>    
+    </div>
+
+
+
+
+
+
+
 
     <h2>Other Drinks from {{ product.speciality.name }}</h2>
 
@@ -32,15 +67,3 @@
         {% endfor %}
     </div>
 {% endblock %}
-
-
-
-{# <ul>
-    {% for otherProduct in product.speciality.products %}
-        {% if otherProduct.id != product.id %}
-            <li>
-                <a href="{{ relative_path('/menu/drinks/' ~ otherProduct.slug) }}">{{ otherProduct.name }}</a>
-            </li>
-        {% endif %}
-    {% endfor %}
-</ul> #}

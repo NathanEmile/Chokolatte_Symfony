@@ -17,7 +17,9 @@
                 {% for category in categories %}
                     <div class="menu-item">
                         <div class="menu-item-img">
-                            <img src="{{ vich_uploader_asset(category, 'imageFile') }}" alt="{{ category.name }}">
+                            <a href="menu/{{ category.slug}}">
+                                <img src="{{ vich_uploader_asset(category, 'imageFile') }}" alt="{{ category.name }}">
+                            </a>
                         </div>
                         <div class="menu-item-text">
                             <h3>{{ category.name }}</h3>
